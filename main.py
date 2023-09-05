@@ -35,7 +35,7 @@ def userdata(user_id: str) -> dict:
 @app.get('/countreviews/')
 def countreviews(fecha1: int, fecha2: int):
     df = pd.read_csv('endpoint1.csv')
-    fil = df[(df.year >= fecha1) & (df.year <= fecha1)]
+    fil = df[(df.year >= fecha1) & (df.year <= fecha2)]
     return {
         'la cantidad de usuarios': fil.user_id.count(),
         'porcentaje de reviews': fil.recommend.count() / len(fil) * 100
